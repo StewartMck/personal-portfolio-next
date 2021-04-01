@@ -2,6 +2,7 @@
 // components/Layout.js
 import Head from "next/head";
 import NavBar from "./navbar";
+import Footer from './footer';
 
 const Layout = props => {
     console.log(props)
@@ -14,6 +15,7 @@ const Layout = props => {
       </Head>
       <NavBar/>    
       <div className="Content">{props.children}</div>
+      <Footer/>
     </div>
   );
 };

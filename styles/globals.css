@@ -21,6 +21,8 @@ a {
 
 .Layout{
   display: flex;
+  flex-direction: column;
+    
 }
 
 .Content{

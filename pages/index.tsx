@@ -3,6 +3,7 @@ import Image from 'next/image'
 import Layout from '../components/layout'
 import styles from '../styles/Home.module.scss'
 import Projects from '../components/projects'
+import TechStack from '../components/techstack'
 
 export default function Home() {
   return (
@@ -23,6 +24,8 @@ export default function Home() {
      height={300}
      />     
      <Projects/>
+     <TechStack/>
+
    </Layout>
    </>
   )
