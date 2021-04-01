@@ -20,11 +20,12 @@ model Project {
   updatedAt   DateTime?  @default(now())
 }
 
-model Experience {
+model Skills {
   id          Int @id @default(autoincrement())
   name        String
   image       String
   createdAt   DateTime  @default(now())
+  // updatedAt   DateTime?  @default(now())
 }
 
 model User {
