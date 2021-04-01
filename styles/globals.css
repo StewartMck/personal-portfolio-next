@@ -18,3 +18,13 @@ a {
 * {
   box-sizing: border-box;
 }
+
+.Layout{
+  display: flex;
+}
+
+.Content{
+  display: flex;
+  flex-direction: column;
+
+}

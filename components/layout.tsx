@@ -12,8 +12,7 @@ const Layout = props => {
       <Head>
         <title>Stewart McKinlay</title>
       </Head>
-      <NavBar/>
-      <br/>     
+      <NavBar/>    
       <div className="Content">{props.children}</div>
     </div>
   );
