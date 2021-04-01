@@ -1,6 +1,6 @@
 import styles from "../styles/TechStack.module.scss"
 
-export default function TechStack() {
+export default function TechStack(props) {
 
     const data = [
         {
@@ -13,11 +13,13 @@ export default function TechStack() {
         },
     ]
 
+    const skills = props.data.skills;
+
     return (
         <section className={styles.container}>
             <h3>Skills</h3>
             <section>
-                {data.map(skill => {
+                {skills.map(skill => {
                     return (
                         <img className={styles.img} src={skill.image} alt={skill.name} />
                     )

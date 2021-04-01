@@ -5,7 +5,36 @@ import styles from '../styles/Home.module.scss'
 import Projects from '../components/projects'
 import TechStack from '../components/techstack'
 
-export default function Home() {
+import {InferGetStaticPropsType} from 'next';
+
+type Projects = {
+  title: String
+  description: String
+  image: String
+  url: String
+}
+
+type Skills = {
+  name: String
+  image: String
+}
+
+export async function getStaticProps() {
+  const resProjects = await fetch('http://localhost:3000/api/projects/all');
+  const projects: Projects[] = await resProjects.json();
+
+  const resSkills = await fetch('http://localhost:3000/api/skills/all');
+  const skills: Skills[] = await resSkills.json();
+
+  return {
+    props: {
+      projects,
+      skills,
+    }
+  }
+}
+
+export default function Home({projects, skills}: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
     <>
     <Head>
@@ -23,8 +52,12 @@ export default function Home() {
      width={300}
      height={300}
      />     
-     <Projects/>
-     <TechStack/>
+     <Projects
+     data={projects}
+     />
+     <TechStack
+     data={skills}
+     />
 
    </Layout>
    </>
