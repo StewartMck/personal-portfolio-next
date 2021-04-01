@@ -6,6 +6,8 @@ import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import HomeIcon from '@material-ui/icons/Home';
 
+import styles from '../styles/Navbar.module.scss';
+
 export default function NavBar() {
 
     const navLinks = [
@@ -20,16 +22,16 @@ export default function NavBar() {
     ]
 
     return (
-        <div>
-            <AppBar position="static">
+        <div >
+            <AppBar>
                 <Toolbar>
                     <Link href='/'>
                         <IconButton>
                             <HomeIcon />
                         </IconButton>
                     </Link>
-                    <div>
-                        {navLinks.map(link=>{
+                    <div className={styles.navlinks}>
+                        {navLinks.map(link => {
                             return (
                                 <Link href={link.path}>
                                     <a>{link.title}</a>
@@ -37,11 +39,11 @@ export default function NavBar() {
                             )
                         })}
                     </div>
-                    <div>
-                        {socialLinks.map(link=>{
+                    <div className={styles.social}>
+                        {socialLinks.map(link => {
                             return (
                                 <a href={link.path}>
-                                    <img src={link.img} alt={link.title} />
+                                    <img className={styles.socialimages} src={link.img} alt={link.title} />
                                 </a>
                             )
                         })}
