@@ -5,7 +5,9 @@ import styles from '../styles/Home.module.scss'
 import Projects from '../components/projects'
 import TechStack from '../components/techstack'
 
+
 import {InferGetStaticPropsType} from 'next';
+
 
 type Projects = {
   title: String
@@ -54,6 +56,7 @@ export default function Home({projects, skills}: InferGetStaticPropsType<typeof 
      />     
      <Projects
      data={projects}
+     filtered={true}
      />
      <TechStack
      data={skills}

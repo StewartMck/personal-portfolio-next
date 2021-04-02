@@ -4,13 +4,15 @@ import { NextApiRequest, NextApiResponse } from 'next';
 export default async (req: NextApiRequest, res: NextApiResponse) => {
 
     const {
-        body: { title, description, image, url },
+        body: { title, description, image, url, featured },
         method,
     } = req
 
     if (method === 'POST') {
+        console.log(title, description, image, url, featured)
         try {
-            if (!title || !description || !image || !url) {
+            if (!title || !description || !image || !url ) {
+                console.log('missing values error triggered')
                 throw new Error("Some required fields are missing")
             } else {
 
@@ -21,6 +23,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
                     description: description,
                     image: image,
                     url: url,
+                    // featured: featured,
                 }
             });
             res.status(200).json({ project: newProject });
