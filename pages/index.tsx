@@ -48,16 +48,19 @@ export default function Home({projects, skills}: InferGetStaticPropsType<typeof 
        <h5>Full Stack Developer | Pilot</h5>
      </section>
      <Image
+     className={styles.profile}
      alt="Profile Picture"
      src='/profile.png'
      layout="fixed"
      width={300}
      height={300}
-     />     
+     />
+     <br/>     
      <Projects
      data={projects}
      filtered={true}
      />
+     <br/> 
      <TechStack
      data={skills}
      />

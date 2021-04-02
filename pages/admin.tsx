@@ -72,7 +72,7 @@ export default function Admin() {
     return (
         <>
             <Head>
-
+            <title>Admin</title>
             </Head>
             <Layout>
                 <section className={styles.projects}>

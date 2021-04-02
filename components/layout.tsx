@@ -5,7 +5,6 @@ import NavBar from "./navbar";
 import Footer from './footer';
 
 const Layout = props => {
-    console.log(props)
   const appTitle = `Stewart McKinlay`;
 
   return (

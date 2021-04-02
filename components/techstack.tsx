@@ -18,13 +18,13 @@ export default function TechStack(props) {
     return (
         <section className={styles.container}>
             <h3>Skills</h3>
-            <section>
+            <div className={styles.skills}>
                 {skills.map(skill => {
                     return (
                         <img className={styles.img} src={skill.image} alt={skill.name} />
                     )
                 })}
-            </section>
+            </div>
         </section>
     )
 }

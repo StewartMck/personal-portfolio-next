@@ -1,7 +1,10 @@
+$secondaryFont:  grey;
+
 .title{
   display: flex;
   flex-direction: column;
   font-size: 3em;
+  align-items: center;
 }
 
 .title h1{
@@ -10,4 +13,9 @@
 
 .title h5{
   margin-top: 0;
+  color: $secondaryFont;
+}
+
+.profile{
+ border-radius: 100px;
 }

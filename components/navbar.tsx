@@ -5,6 +5,7 @@ import Link from 'next/link';
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import HomeIcon from '@material-ui/icons/Home';
+import VpnKeyIcon from '@material-ui/icons/VpnKey';
 
 import styles from '../styles/Navbar.module.scss';
 
@@ -48,7 +49,11 @@ export default function NavBar() {
                             )
                         })}
                     </div>
-
+                    <Link href='/admin'>
+                        <IconButton>
+                            <VpnKeyIcon />
+                        </IconButton>
+                    </Link>
                 </Toolbar>
             </AppBar>
         </div>
