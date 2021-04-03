@@ -14,13 +14,17 @@ export default function AdminProjects() {
         featured: false,
     })
 
-    useEffect(() => {
+    const getData = () => {
         axios({
             url: 'http://localhost:3000/api/projects/all',
             method: "GET",
         }).then((res) => {
             setItems(res.data.projects)
         })
+    }
+
+    useEffect(() => {
+        getData();
     }, [])
 
     const handleSubmit = async (e) => {
@@ -35,7 +39,7 @@ export default function AdminProjects() {
                 },
                 data: formData
             })
-            return resp
+            return getData();
         } else if (method === "Update") {
             const resp = await axios({
                 url: `http://localhost:3000/api/project/${formData.id}`,
@@ -45,7 +49,7 @@ export default function AdminProjects() {
                 },
                 data: formData
             })
-            return resp
+            return getData();
         }
     };
 
@@ -55,8 +59,7 @@ export default function AdminProjects() {
                 url: `http://localhost:3000/api/project/${id}`,
                 method: 'delete',
             })
-            console.log(res)
-            return res;
+            return getData();
         }
     }
 

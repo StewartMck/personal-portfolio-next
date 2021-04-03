@@ -4,6 +4,15 @@ import axios from 'axios'
 
 export default function SkillsProjects() {
 
+    const getData = () => {
+        axios({
+            url: 'http://localhost:3000/api/skills/all',
+            method: "GET",
+        }).then((res) => {
+            setItems(res.data.skills)
+        })
+    }
+
     const [items, setItems] = useState([]);
     const [formData, setFormData] = useState({
         id: '',
@@ -12,12 +21,7 @@ export default function SkillsProjects() {
     })
 
     useEffect(() => {
-        axios({
-            url: 'http://localhost:3000/api/skills/all',
-            method: "GET",
-        }).then((res) => {
-            setItems(res.data.skills)
-        })
+        getData();
     }, [])
 
     const handleSubmit = async (e) => {
@@ -32,7 +36,7 @@ export default function SkillsProjects() {
                 },
                 data: formData
             })
-            return resp
+            return await getData();
         } else if (method === "Update") {
             const resp = await axios({
                 url: `http://localhost:3000/api/skill/${formData.id}`,
@@ -42,7 +46,7 @@ export default function SkillsProjects() {
                 },
                 data: formData
             })
-            return resp
+            return await getData();
         }
     };
 
@@ -56,9 +60,9 @@ export default function SkillsProjects() {
                 url: `http://localhost:3000/api/skill/${id}`,
                 method: 'delete',
             })
-            console.log(res)
-            return res;
+            return await getData();
         }
+
     }
 
     return (
@@ -71,7 +75,7 @@ export default function SkillsProjects() {
                         type="text"
                         name="name"
                         value={formData.name}
-                        onChange={(event) => { setFormData((prev) => ({ ...prev, title: event.target.value })) }}
+                        onChange={(event) => { setFormData((prev) => ({ ...prev, name: event.target.value })) }}
                     />
                 </label>
                 <label>
