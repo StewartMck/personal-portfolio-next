@@ -22,7 +22,10 @@ a {
 .Layout{
   display: flex;
   flex-direction: column;
-
+  background-image: url("/bg.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
 }
 
 .Content{
@@ -34,11 +37,11 @@ a {
  
 }
 
-@media only screen and (min-width: 1024px) {
+/* @media only screen and (min-width: 1024px) {
   .Layout {
-    background-image: url("/background.jpg");
+    background-image: url("/bg.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
   }
-}
+} */

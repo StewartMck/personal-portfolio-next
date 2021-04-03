@@ -64,7 +64,6 @@ export default function Home({projects, skills}: InferGetStaticPropsType<typeof 
      <TechStack
      data={skills}
      />
-
    </Layout>
    </>
   )
