@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import Layout from '../components/layout';
 import Projects from '../components/projects';
+import styles from '../styles/AllProjects.module.scss';
 
 import {InferGetStaticPropsType} from 'next';
 
@@ -38,9 +39,11 @@ export default function AllProjects({projects}: InferGetStaticPropsType<typeof g
     
         </Head>
        <Layout>
+         <section className={styles.Container}>
          <Projects
          data={projects}
          />   
+         </section>
        </Layout>
        </>
     )

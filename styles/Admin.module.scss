@@ -5,7 +5,24 @@
     margin-left: 2em;
     margin-right: 2em;
     align-items: center;
-    
+}
+
+.projects h3{
+    color:white;
+    font-size: 1.8em;
+}
+
+.projectForm{
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    width:100%;
+    border-radius: 0.5em;
+    padding: 1em;
+}
+
+.projectForm input {
+   width: 100%;
 }
 
 .table{
@@ -17,4 +34,16 @@
 
 .long{
     word-break: break-all;
+}
+
+.buttons{
+    display: flex;
+    align-self: center;
+    width:200px;
+}
+
+.featured{
+    display: flex;
+    flex-direction: column;
+    align-self: flex-start;
 }
