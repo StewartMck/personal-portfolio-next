@@ -28,6 +28,7 @@ export default function NavBar() {
     const navLinks = [
         { title: 'About', path: '/about' },
         { title: 'Projects', path: '/projects' },
+        {title: 'Resume', path: 'https://resume.creddle.io/resume/ixegloh48mh'}
     ]
 
     const socialLinks = [
