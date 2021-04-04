@@ -23,13 +23,17 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
                     description: description,
                     image: image,
                     url: url,
-                    // featured: featured,
+                    featured: featured,
                 }
             });
-            res.status(200).json({ project: newProject });
+
+            setTimeout(()=>{
+                res.status(200).json({ project: newProject, message: "success" });
+            },5000)
         }
 
         } catch (e) {
+            console.log(e.message)
             res.status(500).json({ error: e.message });
         }
 

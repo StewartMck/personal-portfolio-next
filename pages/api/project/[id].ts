@@ -4,7 +4,7 @@ import { NextApiRequest, NextApiResponse } from 'next';
 export default async (req: NextApiRequest, res: NextApiResponse) => {
     const {
         query: { id },
-        body: { title, description, image, url },
+        body: { title, description, image, url, featured },
         method,
     } = req
 
@@ -26,10 +26,11 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
                         description: description,
                         image: image,
                         url: url,
+                        featured: featured,
                         updatedAt: new Date(Date.now())
                     }
                 })
-                res.status(200).json({ project: updateProject })
+                res.status(200).json({ project: updateProject, message: "success" })
                 break;
             case 'DELETE':
                 const deleteProject = await prisma.project.delete({
@@ -37,7 +38,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
                         id: Number(id)
                     }
                 })
-                res.status(200).json({ project: deleteProject })
+                res.status(200).json({ project: deleteProject, message: "success" })
                 break;
             default:
                 res.setHeader('Allow', ['GET', 'PUT', 'DELETE'])

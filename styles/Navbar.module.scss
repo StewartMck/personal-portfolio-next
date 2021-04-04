@@ -1,8 +1,8 @@
 .navlinks{
     display: flex;
     flex-direction: row;
-    font-size: 2em; 
-    width: 400px;
+    font-size: 1em; 
+    width: 600px;
     justify-content: space-evenly;
 }
 
@@ -13,9 +13,12 @@
 }
 
 .socialimages {
-    width: 2em;
+    width: 1.2em;
 }
 
 .socialimages:hover{
     width:2.5em;
 }
+
+
+

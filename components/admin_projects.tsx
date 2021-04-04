@@ -1,18 +1,44 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useReducer } from 'react'
 import styles from '../styles/Admin.module.scss'
 import axios from 'axios'
 
+const initialStatus = {
+    loading: false,
+    success: false,
+    error: false,
+}
+const reducer = (state, action) => {
+    switch(action.type) {
+        case 'loading': {
+            return{...state, loading: true, error: false, success: false}
+        }
+        case 'success': {
+            return {...state, loading: false, success: true}
+        }
+        case 'error': {
+            return {...state, loading: false, error: true}
+        }
+        default: {
+            return state;
+        }
+    }
+}
+
 export default function AdminProjects() {
 
-    const [items, setItems] = useState([]);
-    const [formData, setFormData] = useState({
+    const [{ loading, success, error }, dispatch] = useReducer(reducer, initialStatus);
+
+    const defaultForm = {
         id: '',
         title: '',
         description: '',
         url: '',
         image: '',
         featured: false,
-    })
+    }
+
+    const [items, setItems] = useState([]);
+    const [formData, setFormData] = useState(defaultForm);
 
     const getData = () => {
         axios({
@@ -28,10 +54,12 @@ export default function AdminProjects() {
     }, [])
 
     const handleSubmit = async (e) => {
+        dispatch({type: 'loading'})
         e.preventDefault();
         const method = e.nativeEvent.submitter.name;
+        try{
         if (method === "Create") {
-            const resp = await axios({
+            const res = await axios({
                 url: 'http://localhost:3000/api/projects/create',
                 method: 'POST',
                 headers: {
@@ -39,9 +67,14 @@ export default function AdminProjects() {
                 },
                 data: formData
             })
-            return getData();
+            console.log(res.data)
+            if(res.data.message === 'success'){
+                dispatch({type: 'success'})
+                setFormData(defaultForm)
+                return getData();
+            }
         } else if (method === "Update") {
-            const resp = await axios({
+            const res = await axios({
                 url: `http://localhost:3000/api/project/${formData.id}`,
                 method: 'PUT',
                 headers: {
@@ -49,17 +82,30 @@ export default function AdminProjects() {
                 },
                 data: formData
             })
-            return getData();
+            
+            if(res.data.message === 'success'){
+                dispatch({type: "success"})
+                setFormData(defaultForm)
+                return getData();
+            }
         }
+    } catch (e) {
+       dispatch({type: "error"})
+    }
     };
 
     const handleDelete = async (id) => {
+        dispatch({type: "loading"})
         if (window.confirm("Are you sure you want to delete this project?") === true) {
             const res = await axios({
                 url: `http://localhost:3000/api/project/${id}`,
                 method: 'delete',
             })
-            return getData();
+            if(res.data.message === 'success'){
+                dispatch({type: 'success'})
+                setFormData(defaultForm)
+                return getData();
+            }
         }
     }
 
@@ -72,6 +118,26 @@ export default function AdminProjects() {
         <section className={styles.projects}>
             <h3>Projects</h3>
             <form onSubmit={handleSubmit} className={styles.projectForm}>
+            {success && (
+                    <div 
+                    style={
+                        {background: "green",
+                         alignSelf: "flex-end",
+                         borderRadius: "0.5em",
+                         height: "50px",
+                         padding: 0,}}>
+                        <p>SUCCESS</p></div>
+                )}
+                {loading && (
+                    <div 
+                    style={
+                        {background: "yellow",
+                         alignSelf: "flex-end",
+                         borderRadius: "0.5em",
+                         height: "50px",
+                         padding: 0,}}>
+                        <p>LOADING...</p></div>
+                )}
                 <label>
                     Title:
     <input
@@ -123,7 +189,7 @@ export default function AdminProjects() {
                 </div>
             </form>
             <br />
-            <div style={{ overflow: "scroll", maxHeight: 200 }}>
+            <div className={styles.tableContainer} style={{ overflow: "scroll", maxHeight: 200 }}>
                 <table className={styles.table}>
                     <tr className={styles.table}>
                         <th>Id</th>
