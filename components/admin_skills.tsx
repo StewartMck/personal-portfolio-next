@@ -54,6 +54,7 @@ export default function SkillsProjects() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        dispatch({type: 'loading'})
         const method = e.nativeEvent.submitter.name;
         try {
         if (method === "Create") {
