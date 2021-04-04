@@ -36,11 +36,10 @@ a {
   margin-left: 1em;
 }
 
-/* @media only screen and (min-width: 1024px) {
-  .Layout {
-    background-image: url("/bg.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
+@media only screen and (min-width: 768px) {
+  .Content {
+    margin-right: 2em;
+    margin-left: 2em;
   }
-} */
+
+}

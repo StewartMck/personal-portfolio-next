@@ -1,6 +1,7 @@
 import { useState, useEffect, useReducer } from 'react'
 import styles from '../styles/Admin.module.scss'
 import axios from 'axios'
+import Message from '../components/message';
 
 const initialStatus = {
     loading: false,
@@ -119,24 +120,22 @@ export default function AdminProjects() {
             <h3>Projects</h3>
             <form onSubmit={handleSubmit} className={styles.projectForm}>
             {success && (
-                    <div 
-                    style={
-                        {background: "green",
-                         alignSelf: "flex-end",
-                         borderRadius: "0.5em",
-                         height: "50px",
-                         padding: 0,}}>
-                        <p>SUCCESS</p></div>
+                    <Message
+                    color={"green"}
+                    message={"success"}
+                     />
                 )}
                 {loading && (
-                    <div 
-                    style={
-                        {background: "yellow",
-                         alignSelf: "flex-end",
-                         borderRadius: "0.5em",
-                         height: "50px",
-                         padding: 0,}}>
-                        <p>LOADING...</p></div>
+                    <Message
+                    color={"yellow"}
+                    message={"loading..."}
+                    />
+                )}
+                {error && (
+                    <Message
+                    color={"red"}
+                    message={"error"}
+                    />
                 )}
                 <label>
                     Title:

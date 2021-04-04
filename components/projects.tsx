@@ -15,7 +15,7 @@ export default function Projects(props) {
   if (!projects || projects.length < 1) {
     return (
       <div className={styles.container}>
-        <h3>Featured Projects</h3>
+        <h3>{props.title}</h3>
         <Grid item xs={12}>
           <Paper>Projects Pending...</Paper>
         </Grid>
@@ -23,7 +23,7 @@ export default function Projects(props) {
     )} else {
     return (
       <div className={styles.container}>
-        <h3>Featured Projects</h3>
+        <h3>{props.title}</h3>
         <Grid container spacing={3}>
           {projects.map(proj => {
             return (

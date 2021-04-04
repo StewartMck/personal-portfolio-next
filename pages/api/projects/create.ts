@@ -26,7 +26,8 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
                     featured: featured,
                 }
             });
-
+    
+            // res.status(200).json({ project: newProject, message: "success" });
             setTimeout(()=>{
                 res.status(200).json({ project: newProject, message: "success" });
             },5000)

@@ -57,6 +57,7 @@ export default function Home({projects, skills}: InferGetStaticPropsType<typeof 
      />
      <br/>     
      <Projects
+     title={"Featured Projects"}
      data={projects}
      filtered={true}
      />

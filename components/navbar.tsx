@@ -2,28 +2,38 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Link from 'next/link';
 import { makeStyles } from '@material-ui/core/styles';
+import {useState} from 'react';
 
 import IconButton from '@material-ui/core/IconButton';
 import HomeIcon from '@material-ui/icons/Home';
 import VpnKeyIcon from '@material-ui/icons/VpnKey';
 
+import Scroll from '../components/scroll';
 
 import styles from '../styles/Navbar.module.scss';
-import { transparent } from 'material-ui/styles/colors';
+
 const useStyles = makeStyles(() => ({
-    root: {
-      color: "white",
-      fontSize: "30px"
-    },
-    navbar: {
+    navbarTransparent: {
         backgroundColor: "transparent",
+    },
+    navbarSolid: {
+        backgroundColor: "#58534f"
     }
   }));
 
-export default function NavBar() {
-    const classes = useStyles();
-
-
+  
+  export default function NavBar() {
+      const classes = useStyles();
+      
+      const [colorChange, setColorChange] = useState(false);
+      const changeNavBarColor = () => {
+          if (window.scrollY <= 50) {
+              setColorChange(true)
+            } else {
+                setColorChange(false)
+            }
+        }
+      
     
     const navLinks = [
         { title: 'About', path: '/about' },
@@ -39,14 +49,18 @@ export default function NavBar() {
 
     return (
         <div >
+            <Scroll
+            onScroll={changeNavBarColor}
+            />
             <AppBar
-            className={classes.navbar}
+            className={colorChange ? classes.navbarTransparent : classes.navbarSolid}
             >
                 <Toolbar>
                     <Link href='/'>
                         <IconButton>
                             <HomeIcon
-                            className={classes.root}
+                            className={styles.homeIcon}
+                            // className={classes.root}
                             />
                         </IconButton>
                     </Link>
