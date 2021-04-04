@@ -68,7 +68,6 @@ export default function AdminProjects() {
                 },
                 data: formData
             })
-            console.log(res.data)
             if(res.data.message === 'success'){
                 dispatch({type: 'success'})
                 setFormData(defaultForm)
@@ -105,7 +104,7 @@ export default function AdminProjects() {
             if(res.data.message === 'success'){
                 dispatch({type: 'success'})
                 setFormData(defaultForm)
-                return getData();
+                return await getData();
             }
         }
     }

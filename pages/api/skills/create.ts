@@ -21,7 +21,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
                     image: image,
                 }
             });
-            res.status(200).json({ skill: newSkill });
+            res.status(200).json({ skill: newSkill, message: "success" });
         }
 
         } catch (e) {

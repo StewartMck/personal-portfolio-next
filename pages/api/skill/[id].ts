@@ -28,7 +28,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
                         // updatedAt: new Date(Date.now())
                     }
                 })
-                res.status(200).json({ skill: updateSkill })
+                res.status(200).json({ skill: updateSkill, message: "success" })
                 break;
             case 'DELETE':
                 const deleteSkill = await prisma.skills.delete({
@@ -36,7 +36,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
                         id: Number(id)
                     }
                 })
-                res.status(200).json({ project: deleteSkill })
+                res.status(200).json({ project: deleteSkill, message: "success" })
                 break;
             default:
                 res.setHeader('Allow', ['GET', 'PUT', 'DELETE'])
