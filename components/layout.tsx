@@ -9,9 +9,6 @@ const Layout = props => {
 
   return (
     <div className="Layout">
-      <Head>
-        <title>Stewart McKinlay</title>
-      </Head>
       <NavBar/>    
       <div className="Content">{props.children}</div>
       <Footer/>

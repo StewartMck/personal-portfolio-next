@@ -36,7 +36,7 @@ export default function AllProjects({projects}: InferGetStaticPropsType<typeof g
     return (
         <>
         <Head>
-    
+        <title>Projects</title>
         </Head>
        <Layout>
          <section className={styles.Container}>

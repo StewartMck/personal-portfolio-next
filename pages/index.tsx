@@ -40,7 +40,7 @@ export default function Home({projects, skills}: InferGetStaticPropsType<typeof 
   return (
     <>
     <Head>
-
+    <title>Stewart McKinlay</title>
     </Head>
    <Layout>
      <section className={styles.title}>

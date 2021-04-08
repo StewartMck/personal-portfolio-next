@@ -6,7 +6,7 @@ export default function About() {
     return (
         <>
             <Head>
-
+                <title>About</title>
             </Head>
             <Layout >
                 <div className={styles.Container}>
