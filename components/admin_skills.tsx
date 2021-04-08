@@ -157,7 +157,7 @@ export default function SkillsProjects() {
                 </div>
             </form>
             <br />
-            <div style={{ overflow: "scroll", maxHeight: 200 }}>
+            <div style={{ overflow: "scroll", maxHeight: 200, width: "100%" }}>
                 <table className={styles.table}>
                     <tr className={styles.table}>
                         <th>Id</th>
