@@ -7,6 +7,9 @@ import {useState} from 'react';
 import IconButton from '@material-ui/core/IconButton';
 import HomeIcon from '@material-ui/icons/Home';
 import VpnKeyIcon from '@material-ui/icons/VpnKey';
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
+
+import { useUser } from '@auth0/nextjs-auth0';
 
 import Scroll from '../components/scroll';
 
@@ -23,6 +26,8 @@ const useStyles = makeStyles(() => ({
 
   
   export default function NavBar() {
+
+    const { user } = useUser();
       const classes = useStyles();
       
       const [colorChange, setColorChange] = useState(false);
@@ -82,11 +87,20 @@ const useStyles = makeStyles(() => ({
                             )
                         })}
                     </div>
+                    <div>
                     <Link href='/admin'>
                         <IconButton>
                             <VpnKeyIcon />
                         </IconButton>
                     </Link>
+                    {user && (
+                        <a href='/api/auth/logout'>
+                        <IconButton>
+                        <ExitToAppIcon />
+                    </IconButton>
+                    </a>
+                    )} 
+                    </div>   
                 </Toolbar>
             </AppBar>
         </div>
