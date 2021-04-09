@@ -2,6 +2,7 @@ import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import styles from '../styles/Projects.module.scss';
 import {filterFeaturedProjects} from '../lib/projects';
+import Image from 'next/image'
 
 export default function Projects(props) {
 
@@ -17,7 +18,12 @@ export default function Projects(props) {
       <div className={styles.container}>
         <h3>{props.title}</h3>
         <Grid item xs={12}>
-          <Paper>Projects Pending...</Paper>
+          <Image
+            src="/work-progress.png"
+            alt='Work in progress'
+            width="200px"
+            height="200px"
+          />
         </Grid>
       </div>
     )} else {

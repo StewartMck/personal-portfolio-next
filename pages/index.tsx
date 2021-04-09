@@ -41,6 +41,8 @@ export default function Home({projects, skills}: InferGetStaticPropsType<typeof 
     <>
     <Head>
     <title>Stewart McKinlay</title>
+    <meta charSet="utf-8" />
+    <meta name="viewport" content="initial-scale=1.0, width=device-width" />
     </Head>
    <Layout>
      <section className={styles.title}>
