@@ -1,5 +1,5 @@
-For the past 16 years, I've been developing applications for the web using mostly PHP. I do this for a living and love what I do as every day there is something new and exciting to learn.
-
+For the past **14 years**, I've been flying helicopter and aeroplanes all over the world.
+<!-- 
 In my spare time, the web development community is a big part of my life. Whether teaching code to kids at a local school, managing online programming groups and blogs or attending a conference, I find keeping involved helps me stay up to date.
 
 This is also my chance to give back to the community that helped me get started, a place I am proud to be part of.
@@ -10,4 +10,4 @@ I graduated from university Hull School of Art & Design where I studied web desi
 
 My job involves doing what I love, Developing new websites/applications, customer relationship management (CRM) applications and developing fantastic content management systems (CMS).
 
-I spend a lot of time learning new techniques and actively help other people learn web development through a variety of help groups and writing web development tutorials for my website and blog about advancements in web design and development.
+I spend a lot of time learning new techniques and actively help other people learn web development through a variety of help groups and writing web development tutorials for my website and blog about advancements in web design and development. -->

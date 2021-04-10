@@ -49,15 +49,16 @@ export default function Home({projects, skills}: InferGetStaticPropsType<typeof 
        <h1>Stewart McKinlay</h1>
        <h5>Full Stack Developer | Pilot</h5>
      </section>
+     <div className={styles.imageContainer}>
      <Image
      className={styles.profile}
      alt="Profile Picture"
      src='/profile.jpg'
-     width="300"
-     height='250'
+     width="600"
+     height='400'
+     layout='intrinsic'
      />
-     <br/> 
-     <br/>    
+     </div>
      <Projects
      title={"Featured Projects"}
      data={projects}

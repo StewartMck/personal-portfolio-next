@@ -33,7 +33,7 @@ export default function TechStack(props) {
     } else {
         return (
             <section className={styles.container}>
-                <h3>Skills</h3>
+                <h3 className={styles.title}>Skills</h3>
                 <div className={styles.skills}>
                     {skills.map(skill => {
                         return (

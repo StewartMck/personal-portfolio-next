@@ -29,14 +29,14 @@ export default function Projects(props) {
     )} else {
     return (
       <div className={styles.container}>
-        <h3>{props.title}</h3>
+        <h3 className={styles.title}>{props.title}</h3>
         <Grid container spacing={3}>
           {projects.map(proj => {
             return (
               <Grid item xs={6} sm={3}>
                 <a href={proj.url}>
                   <Paper>
-                    <h3>{proj.title}</h3>
+                    <h4>{proj.title}</h4>
                     <p>{proj.description}</p>
                     <img className={styles.img} src={proj.image} alt={proj.title} />
                   </Paper>

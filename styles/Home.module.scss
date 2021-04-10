@@ -1,8 +1,7 @@
 .title{
-  margin-top: 2em;
+  margin-top: 4.5em;
   display: flex;
   flex-direction: column;
-  font-size: 2em;
   align-items: center;
   text-align: center;
 }
@@ -10,7 +9,7 @@
 .title h5{
   margin-top: 10px;
   color: whitesmoke;
-  font-size: 50%;
+  font-size: 4vw;
   letter-spacing: 0.05em;
 }
 
@@ -19,11 +18,15 @@
  mix-blend-mode: lighten;
 }
 
+.imageContainer {
+  margin-bottom: 3em;
+}
+
 .title h1 {
   color: white;
   letter-spacing: 0.09em;
   color: white;
-  font-size: 1em;
+  font-size: 8vw;
   word-wrap: normal;
   overflow: hidden; /* Ensures the content is not revealed until the animation */
   border-right: .15em solid white; /* The typwriter cursor */
@@ -47,9 +50,9 @@
   50% { border-color: white; }
 }
 
-@media only screen and (min-width: 768px) {
- .title {
-   font-size: 3em;
- }
-
-}
+// @media only screen and (min-width: 1021px) {
+//  .profile{
+//    width: 600px;
+//    height: 400px;
+//  }
+// }
