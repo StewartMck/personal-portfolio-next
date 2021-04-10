@@ -52,17 +52,18 @@ export default function Home({projects, skills}: InferGetStaticPropsType<typeof 
      <Image
      className={styles.profile}
      alt="Profile Picture"
-     src='/profile.png'
-     layout="fixed"
-     width={300}
-     height={300}
+     src='/profile.jpg'
+     width="300"
+     height='250'
      />
-     <br/>     
+     <br/> 
+     <br/>    
      <Projects
      title={"Featured Projects"}
      data={projects}
      filtered={true}
      />
+     <br/> 
      <br/> 
      <TechStack
      data={skills}

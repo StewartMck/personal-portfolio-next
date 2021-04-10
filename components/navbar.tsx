@@ -32,7 +32,7 @@ const useStyles = makeStyles(() => ({
       
       const [colorChange, setColorChange] = useState(false);
       const changeNavBarColor = () => {
-          if (window.scrollY <= 50) {
+          if (window.scrollY >= 50) {
               setColorChange(true)
             } else {
                 setColorChange(false)
@@ -58,14 +58,15 @@ const useStyles = makeStyles(() => ({
             onScroll={changeNavBarColor}
             />
             <AppBar
-            className={colorChange ? classes.navbarTransparent : classes.navbarSolid}
+            className={colorChange ? classes.navbarSolid : classes.navbarTransparent}
             >
-                <Toolbar>
+                <Toolbar
+                disableGutters={true}
+                >
                     <Link href='/'>
                         <IconButton>
                             <HomeIcon
                             className={styles.homeIcon}
-                            // className={classes.root}
                             />
                         </IconButton>
                     </Link>
