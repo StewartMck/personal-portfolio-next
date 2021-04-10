@@ -87,15 +87,17 @@ const useStyles = makeStyles(() => ({
                             )
                         })}
                     </div>
-                    <div>
+                    <div className={styles.admin}>
                     <Link href='/admin'>
-                        <IconButton>
+                        <IconButton
+                        size={'small'}>
                             <VpnKeyIcon />
                         </IconButton>
                     </Link>
                     {user && (
                         <a href='/api/auth/logout'>
-                        <IconButton>
+                        <IconButton
+                        size={'small'}>
                         <ExitToAppIcon />
                     </IconButton>
                     </a>

@@ -38,8 +38,8 @@ a {
 
 @media only screen and (min-width: 768px) {
   .Content {
-    margin-right: 2em;
-    margin-left: 2em;
+    margin-right: 5em;
+    margin-left: 5em;
   }
   .Layout{
     height: 100vh;

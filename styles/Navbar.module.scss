@@ -1,5 +1,13 @@
 .navbar {
-    background-color: transparent;
+    // background-color: transparent;
+}
+
+.admin {
+    display: flex;
+}
+
+.buttons {
+    padding: 0;
 }
 
 .navlinks{
@@ -14,6 +22,7 @@
     display: flex;
     width: 200px;
     justify-content: space-evenly;
+    margin-right: 10px;
 }
 
 .socialimages {
