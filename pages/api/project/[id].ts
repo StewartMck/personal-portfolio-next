@@ -1,7 +1,8 @@
 import prisma from '../../../lib/prisma';
 import { NextApiRequest, NextApiResponse } from 'next';
+import { withApiAuthRequired } from '@auth0/nextjs-auth0';
 
-export default async (req: NextApiRequest, res: NextApiResponse) => {
+export default withApiAuthRequired(async (req: NextApiRequest, res: NextApiResponse) => {
     const {
         query: { id },
         body: { title, description, image, url, featured },
@@ -51,4 +52,4 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
         await prisma.$disconnect()
     }
     
-}
+});

@@ -1,7 +1,8 @@
 import prisma from '../../../lib/prisma';
 import { NextApiRequest, NextApiResponse } from 'next';
+import { withApiAuthRequired } from '@auth0/nextjs-auth0';
 
-export default async (req: NextApiRequest, res: NextApiResponse) => {
+export default withApiAuthRequired(async (req: NextApiRequest, res: NextApiResponse) => {
 
     const {
         body: { title, description, image, url, featured },
@@ -27,10 +28,8 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
                 }
             });
     
-            // res.status(200).json({ project: newProject, message: "success" });
-            setTimeout(()=>{
-                res.status(200).json({ project: newProject, message: "success" });
-            },5000)
+            res.status(200).json({ project: newProject, message: "success" });
+        
         }
 
         } catch (e) {
@@ -43,4 +42,4 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
         res.status(405).end(`Method ${method} Not Allowed`)
     }
 
-}
+});

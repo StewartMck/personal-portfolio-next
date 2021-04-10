@@ -1,7 +1,8 @@
 import prisma from '../../../lib/prisma';
 import { NextApiRequest, NextApiResponse } from 'next';
+import { withApiAuthRequired } from '@auth0/nextjs-auth0';
 
-export default async (req: NextApiRequest, res: NextApiResponse) => {
+export default withApiAuthRequired(async (req: NextApiRequest, res: NextApiResponse) => {
 
     const {
         body: { name, image },
@@ -33,4 +34,4 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
         res.status(405).end(`Method ${method} Not Allowed`)
     }
 
-}
+});
