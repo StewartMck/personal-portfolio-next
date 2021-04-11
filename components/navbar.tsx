@@ -58,6 +58,7 @@ const useStyles = makeStyles(() => ({
             onScroll={changeNavBarColor}
             />
             <AppBar
+            color={'transparent'}
             className={colorChange ? classes.navbarSolid : classes.navbarTransparent}
             >
                 <Toolbar
@@ -71,18 +72,18 @@ const useStyles = makeStyles(() => ({
                         </IconButton>
                     </Link>
                     <div className={styles.navlinks}>
-                        {navLinks.map(link => {
+                        {navLinks.map((link, i) => {
                             return (
-                                <Link href={link.path}>
+                                <Link key={i} href={link.path}>
                                     <a>{link.title}</a>
                                 </Link>
                             )
                         })}
                     </div>
                     <div className={styles.social}>
-                        {socialLinks.map(link => {
+                        {socialLinks.map((link, i) => {
                             return (
-                                <a href={link.path} target={'_blank'}>
+                                <a key={i} href={link.path} target={'_blank'}>
                                     <img className={styles.socialimages} src={link.img} alt={link.title} />
                                 </a>
                             )

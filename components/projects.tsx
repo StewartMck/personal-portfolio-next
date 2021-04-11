@@ -31,9 +31,9 @@ export default function Projects(props) {
       <div className={styles.container}>
         <h3 className={styles.title}>{props.title}</h3>
         <Grid container spacing={3}>
-          {projects.map(proj => {
+          {projects.map((proj, i) => {
             return (
-              <Grid item xs={6} sm={3}>
+              <Grid key={i} item xs={6} sm={3}>
                 <a href={proj.url}>
                   <Paper>
                     <h4>{proj.title}</h4>

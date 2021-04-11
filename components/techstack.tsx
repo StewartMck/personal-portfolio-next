@@ -35,9 +35,9 @@ export default function TechStack(props) {
             <section className={styles.container}>
                 <h3 className={styles.title}>Skills</h3>
                 <div className={styles.skills}>
-                    {skills.map(skill => {
+                    {skills.map((skill, i) => {
                         return (
-                            <img className={styles.img} src={skill.image} alt={skill.name} />
+                            <img key={i} className={styles.img} src={skill.image} alt={skill.name} />
                         )
                     })}
                 </div>
