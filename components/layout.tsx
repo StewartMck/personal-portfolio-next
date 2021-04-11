@@ -1,15 +1,16 @@
 import NavBar from "./navbar";
 import Footer from './footer';
 
-const Layout = props => {
+type AppProps = {
+  children: React.ReactNode;
+}
 
+export default function Layout ({children}: AppProps) {
   return (
     <div className="Layout">
-      <NavBar/>    
-      <div className="Content">{props.children}</div>
-      <Footer/>
+      <NavBar />
+      <div className="Content">{children}</div>
+      <Footer />
     </div>
   );
 };
-
-export default Layout;

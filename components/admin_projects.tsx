@@ -1,23 +1,30 @@
 import { useState, useEffect, useReducer } from 'react'
-import styles from '../styles/Admin.module.scss'
 import axios from 'axios'
 import Message from '../components/message';
+
+import styles from '../styles/Admin.module.scss'
 
 const initialStatus = {
     loading: false,
     success: false,
     error: false,
 }
-const reducer = (state, action) => {
-    switch(action.type) {
+
+type ACTIONTYPE =
+    | { type: "loading" }
+    | { type: "success" }
+    | { type: "error" };
+
+const reducer = (state: typeof initialStatus, action: ACTIONTYPE) => {
+    switch (action.type) {
         case 'loading': {
-            return{...state, loading: true, error: false, success: false}
+            return { ...state, loading: true, error: false, success: false }
         }
         case 'success': {
-            return {...state, loading: false, success: true}
+            return { ...state, loading: false, success: true }
         }
         case 'error': {
-            return {...state, loading: false, error: true}
+            return { ...state, loading: false, error: true }
         }
         default: {
             return state;
@@ -36,6 +43,8 @@ export default function AdminProjects() {
         url: '',
         image: '',
         featured: false,
+        createdAt: null,
+        updatedAt: null,
     }
 
     const [items, setItems] = useState([]);
@@ -54,86 +63,85 @@ export default function AdminProjects() {
         getData();
     }, [])
 
-    const handleSubmit = async (e) => {
-        dispatch({type: 'loading'})
+    const handleSubmit = async (e: any) => {
+        dispatch({ type: 'loading' })
         e.preventDefault();
         const method = e.nativeEvent.submitter.name;
-        try{
-        if (method === "Create") {
-            const res = await axios({
-                url: 'http://localhost:3000/api/projects/create',
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                data: formData
-            })
-            if(res.data.message === 'success'){
-                dispatch({type: 'success'})
-                setFormData(defaultForm)
-                return getData();
+        try {
+            if (method === "Create") {
+                const res = await axios({
+                    url: 'http://localhost:3000/api/projects/create',
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    data: formData
+                })
+                if (res.data.message === 'success') {
+                    dispatch({ type: 'success' })
+                    setFormData(defaultForm)
+                    return getData();
+                }
+            } else if (method === "Update") {
+                const res = await axios({
+                    url: `http://localhost:3000/api/project/${formData.id}`,
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    data: formData
+                })
+
+                if (res.data.message === 'success') {
+                    dispatch({ type: "success" })
+                    setFormData(defaultForm)
+                    return getData();
+                }
             }
-        } else if (method === "Update") {
-            const res = await axios({
-                url: `http://localhost:3000/api/project/${formData.id}`,
-                method: 'PUT',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                data: formData
-            })
-            
-            if(res.data.message === 'success'){
-                dispatch({type: "success"})
-                setFormData(defaultForm)
-                return getData();
-            }
+        } catch (e) {
+            dispatch({ type: "error" })
         }
-    } catch (e) {
-       dispatch({type: "error"})
-    }
     };
 
-    const handleDelete = async (id) => {
-        dispatch({type: "loading"})
+    const handleDelete = async (id: number) => {
+        dispatch({ type: "loading" })
         if (window.confirm("Are you sure you want to delete this project?") === true) {
             const res = await axios({
                 url: `http://localhost:3000/api/project/${id}`,
                 method: 'delete',
             })
-            if(res.data.message === 'success'){
-                dispatch({type: 'success'})
+            if (res.data.message === 'success') {
+                dispatch({ type: 'success' })
                 setFormData(defaultForm)
                 return await getData();
             }
         }
     }
 
-    const handleUpdate = (project) => {
+    const handleUpdate = (project: typeof defaultForm) => {
         setFormData(project);
     }
-
 
     return (
         <section className={styles.projects}>
             <h3>Projects</h3>
             <form onSubmit={handleSubmit} className={styles.projectForm}>
-            {success && (
+                {success && (
                     <Message
-                    color={"green"}
-                    message={"success"}
-                     />
+                        color={"green"}
+                        message={"success"}
+                    />
                 )}
                 {loading && (
                     <Message
-                    color={"yellow"}
-                    message={"loading..."}
+                        color={"yellow"}
+                        message={"loading..."}
                     />
                 )}
                 {error && (
                     <Message
-                    color={"red"}
-                    message={"error"}
+                        color={"red"}
+                        message={"error"}
                     />
                 )}
                 <label>
@@ -200,9 +208,9 @@ export default function AdminProjects() {
                         <th>Updated At</th>
                         <th>Delete</th>
                     </tr>
-                    {items.map((project) => {
+                    {items.map((project: typeof defaultForm, i) => {
                         return (
-                            <tr className={styles.table}>
+                            <tr key={i} className={styles.table}>
                                 <th>{project.id}</th>
                                 <th onClick={() => handleUpdate(project)}>{project.title}</th>
                                 <th >{project.description}</th>
@@ -211,7 +219,7 @@ export default function AdminProjects() {
                                 <th>{project.featured ? 'T' : 'F'}</th>
                                 <th>{project.createdAt}</th>
                                 <th>{project.updatedAt}</th>
-                                <th><button className={styles.deleteButton} onClick={() => handleDelete(project.id)}>Delete</button></th>
+                                <th><button className={styles.deleteButton} onClick={() => handleDelete(Number(project.id))}>Delete</button></th>
                             </tr>
                         )
                     })}
