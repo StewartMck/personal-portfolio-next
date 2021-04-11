@@ -1,13 +1,8 @@
-For the past **14 years**, I've been flying helicopter and aeroplanes all over the world.
-<!-- 
-In my spare time, the web development community is a big part of my life. Whether teaching code to kids at a local school, managing online programming groups and blogs or attending a conference, I find keeping involved helps me stay up to date.
+For the past **14 years**, I've been flying helicopters and aeroplanes all over the world. From the dense jungles of africa, the vast deserts of the middle east to the cold barren artic wilderness.
 
-This is also my chance to give back to the community that helped me get started, a place I am proud to be part of.
+I've always had an interest in coding and so when Covid necessitated a change in careers I jumped at the opportunity to take this interest and turn it into a passion.
+I graduated from **Lighthouse Labs Web Development Bootcamp** in Febuary of 2021, not only with the skills to develop a quality product but also a thirst to try and master new concepts and technologies.
+In my spare time, I enjoy travelling and photography.
+>“ Times and conditions change so rapidly that we must keep our aim constantly focused on the future. ” -Walt Disney
 
-Besides programming I love spending time with friends and family and can often be found together going out catching the latest movie, staying in playing games on the sofa or planning a trip to someplace I've never been before.
-
-I graduated from university Hull School of Art & Design where I studied web design and got a first class degree with honours. While I was at university I worked part time for a web design agency called Surrect Media that helped me to further hone in my skills as a developer. When not at work I'm usually working on a new project from home which could be anything to updating one of my sites to creating a new CRM application. Since leaving university I've been lucky enough to work for The One Point.
-
-My job involves doing what I love, Developing new websites/applications, customer relationship management (CRM) applications and developing fantastic content management systems (CMS).
-
-I spend a lot of time learning new techniques and actively help other people learn web development through a variety of help groups and writing web development tutorials for my website and blog about advancements in web design and development. -->
+**I'm focused on mastering my new craft and excited for what the future holds.**
