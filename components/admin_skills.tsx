@@ -175,7 +175,7 @@ export default function SkillsProjects() {
                                 <th className={styles.long}>{skill.image}</th>
                                 <th>{skill.createdAt}</th>
                                 <th>{skill.updatedAt}</th>
-                                <th><button onClick={() => handleDelete(skill.id)}>Delete</button></th>
+                                <th><button className={styles.deleteButton} onClick={() => handleDelete(skill.id)}>Delete</button></th>
                             </tr>
                         )
                     })}

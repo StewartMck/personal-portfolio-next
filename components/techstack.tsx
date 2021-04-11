@@ -22,7 +22,7 @@ export default function TechStack(props) {
                 <h3>Skills</h3>
                 <div className={styles.skills}>
                     <Image
-                        src="/learning.jpg"
+                        src="/learning.png"
                         alt="Learning skills"
                         width={100}
                         height={100}

@@ -32,7 +32,7 @@ const useStyles = makeStyles(() => ({
       
       const [colorChange, setColorChange] = useState(false);
       const changeNavBarColor = () => {
-          if (window.scrollY >= 50) {
+          if (window.scrollY >= 30) {
               setColorChange(true)
             } else {
                 setColorChange(false)
@@ -82,7 +82,7 @@ const useStyles = makeStyles(() => ({
                     <div className={styles.social}>
                         {socialLinks.map(link => {
                             return (
-                                <a href={link.path}>
+                                <a href={link.path} target={'_blank'}>
                                     <img className={styles.socialimages} src={link.img} alt={link.title} />
                                 </a>
                             )

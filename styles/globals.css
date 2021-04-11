@@ -20,12 +20,14 @@ a {
 }
 
 .Layout{
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   background-image: url("/bg.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+
 }
 
 .Content{
@@ -34,6 +36,7 @@ a {
   align-items: center;
   margin-right: 1em;
   margin-left: 1em;
+  flex: 1 0 auto;
 }
 
 

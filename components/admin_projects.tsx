@@ -208,10 +208,10 @@ export default function AdminProjects() {
                                 <th >{project.description}</th>
                                 <th className={styles.long}>{project.image}</th>
                                 <th className={styles.long}>{project.url}</th>
-                                <th>{project.featured}</th>
+                                <th>{project.featured ? 'T' : 'F'}</th>
                                 <th>{project.createdAt}</th>
                                 <th>{project.updatedAt}</th>
-                                <th><button onClick={() => handleDelete(project.id)}>Delete</button></th>
+                                <th><button className={styles.deleteButton} onClick={() => handleDelete(project.id)}>Delete</button></th>
                             </tr>
                         )
                     })}
