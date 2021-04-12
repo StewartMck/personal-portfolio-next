@@ -3,6 +3,8 @@
 <br>
 <br>
 
+!["Portfolio gif"](docs/portfolio.gif)
+
 ## Skills on Display
 
 - [x] NEXT.js
