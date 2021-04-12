@@ -26,7 +26,7 @@ export default withApiAuthRequired(async (req: NextApiRequest, res: NextApiRespo
                     data: {
                         name: name,
                         image: image,
-                        // updatedAt: new Date(Date.now())
+                        updatedAt: new Date(Date.now())
                     }
                 })
                 res.status(200).json({ skill: updateSkill, message: "success" })
