@@ -1,5 +1,4 @@
 import Head from 'next/head'
-import axios from 'axios'
 
 import Image from 'next/image'
 import Layout from '../components/layout'
@@ -7,6 +6,9 @@ import Projects from '../components/projects'
 import TechStack from '../components/techstack'
 
 import { InferGetStaticPropsType } from 'next';
+
+import useSwr from 'swr'
+import {getData} from '../pages/api/projects/all'
 
 import styles from '../styles/Home.module.scss'
 
@@ -31,14 +33,11 @@ type Skills = {
 
 export async function getStaticProps() {
   
-  const projects = {};
-  const skills = {};
-  
-  // const resProjects = await fetch('http://localhost:3000/api/projects/all');
-  // const projects: Project[] = await resProjects.json();
+  const resProjects = await fetch('http://localhost:3000/api/projects/all');
+  const projects: Project[] = await resProjects.json();
 
-  // const resSkills = await fetch('http://localhost:3000/api/skills/all');
-  // const skills: Skills[] = await resSkills.json();
+  const resSkills = await fetch('http://localhost:3000/api/skills/all');
+  const skills: Skills[] = await resSkills.json();
 
   return {
     props: {
@@ -49,6 +48,7 @@ export async function getStaticProps() {
 }
 
 export default function Home({ projects, skills }: InferGetStaticPropsType<typeof getStaticProps>) {
+
   return (
     <>
       <Head>

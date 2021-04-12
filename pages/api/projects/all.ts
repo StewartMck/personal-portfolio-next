@@ -1,6 +1,11 @@
 import prisma from '../../../lib/prisma';
 import { NextApiRequest, NextApiResponse } from 'next';
 
+export async function getData() {
+  const data = await prisma.project.findMany();
+  return data;
+}
+
 export default async (req: NextApiRequest, res: NextApiResponse) => {
   const { method } = req;
 
