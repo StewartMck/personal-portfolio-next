@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import axios from 'axios'
 
 import Image from 'next/image'
 import Layout from '../components/layout'
@@ -29,11 +30,15 @@ type Skills = {
 }
 
 export async function getStaticProps() {
-  const resProjects = await fetch('http://localhost:3000/api/projects/all');
-  const projects: Project[] = await resProjects.json();
+  
+  const projects = {};
+  const skills = {};
+  
+  // const resProjects = await fetch('http://localhost:3000/api/projects/all');
+  // const projects: Project[] = await resProjects.json();
 
-  const resSkills = await fetch('http://localhost:3000/api/skills/all');
-  const skills: Skills[] = await resSkills.json();
+  // const resSkills = await fetch('http://localhost:3000/api/skills/all');
+  // const skills: Skills[] = await resSkills.json();
 
   return {
     props: {
