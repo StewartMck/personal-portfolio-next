@@ -3,7 +3,7 @@
 <br>
 <br>
 
-!["Portfolio gif"](docs/portfolio.gif)
+!["Portfolio gif"](docs/porfolio.gif)
 
 ## Skills on Display
 
