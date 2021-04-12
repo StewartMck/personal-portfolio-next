@@ -33,10 +33,10 @@ type Skills = {
 
 export async function getStaticProps() {
   
-  const resProjects = await fetch('http://localhost:3000/api/projects/all');
+  const resProjects = await fetch('https://personal-portfolio-next-7ggzufpg9-stewartmck.vercel.app/api/projects/all');
   const projects: Project[] = await resProjects.json();
 
-  const resSkills = await fetch('http://localhost:3000/api/skills/all');
+  const resSkills = await fetch('https://personal-portfolio-next-7ggzufpg9-stewartmck.vercel.app/api/skills/all');
   const skills: Skills[] = await resSkills.json();
 
   return {
