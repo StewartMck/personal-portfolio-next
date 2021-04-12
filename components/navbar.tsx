@@ -1,14 +1,13 @@
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Link from 'next/link';
-import { makeStyles } from '@material-ui/core/styles';
-import {useState} from 'react';
-
 import IconButton from '@material-ui/core/IconButton';
+import { makeStyles } from '@material-ui/core/styles';
 import HomeIcon from '@material-ui/icons/Home';
 import VpnKeyIcon from '@material-ui/icons/VpnKey';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 
+import { useState } from 'react';
 import { useUser } from '@auth0/nextjs-auth0';
 
 import Scroll from '../components/scroll';
@@ -22,28 +21,26 @@ const useStyles = makeStyles(() => ({
     navbarSolid: {
         backgroundColor: "#58534f"
     }
-  }));
+}));
 
-  
-  export default function NavBar() {
+export default function NavBar() {
 
     const { user } = useUser();
-      const classes = useStyles();
-      
-      const [colorChange, setColorChange] = useState(false);
-      const changeNavBarColor = () => {
-          if (window.scrollY >= 30) {
-              setColorChange(true)
-            } else {
-                setColorChange(false)
-            }
+    const classes = useStyles();
+
+    const [colorChange, setColorChange] = useState(false);
+    const changeNavBarColor = () => {
+        if (window.scrollY >= 30) {
+            setColorChange(true)
+        } else {
+            setColorChange(false)
         }
-      
-    
+    }
+
     const navLinks = [
         { title: 'About', path: '/about' },
         { title: 'Projects', path: '/projects' },
-        {title: 'Resume', path: 'https://resume.creddle.io/resume/ixegloh48mh'}
+        { title: 'Resume', path: 'https://resume.creddle.io/resume/ixegloh48mh' }
     ]
 
     const socialLinks = [
@@ -55,19 +52,19 @@ const useStyles = makeStyles(() => ({
     return (
         <div >
             <Scroll
-            onScroll={changeNavBarColor}
+                onScroll={changeNavBarColor}
             />
             <AppBar
-            color={'transparent'}
-            className={colorChange ? classes.navbarSolid : classes.navbarTransparent}
+                color={'transparent'}
+                className={colorChange ? classes.navbarSolid : classes.navbarTransparent}
             >
                 <Toolbar
-                disableGutters={true}
+                    disableGutters={true}
                 >
                     <Link href='/'>
                         <IconButton>
                             <HomeIcon
-                            className={styles.homeIcon}
+                                className={styles.homeIcon}
                             />
                         </IconButton>
                     </Link>
@@ -90,24 +87,23 @@ const useStyles = makeStyles(() => ({
                         })}
                     </div>
                     <div className={styles.admin}>
-                    <Link href='/admin'>
-                        <IconButton
-                        size={'small'}>
-                            <VpnKeyIcon />
-                        </IconButton>
-                    </Link>
-                    {user && (
-                        <a href='/api/auth/logout'>
-                        <IconButton
-                        size={'small'}>
-                        <ExitToAppIcon />
-                    </IconButton>
-                    </a>
-                    )} 
-                    </div>   
+                        <Link href='/admin'>
+                            <IconButton
+                                size={'small'}>
+                                <VpnKeyIcon />
+                            </IconButton>
+                        </Link>
+                        {user && (
+                            <a href='/api/auth/logout'>
+                                <IconButton
+                                    size={'small'}>
+                                    <ExitToAppIcon />
+                                </IconButton>
+                            </a>
+                        )}
+                    </div>
                 </Toolbar>
             </AppBar>
         </div>
     )
 }
-

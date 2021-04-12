@@ -3,19 +3,8 @@ import Image from 'next/image';
 
 export default function TechStack(props) {
 
-    const data = [
-        {
-            name: "Nextjs",
-            image: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Nextjs-logo.svg/800px-Nextjs-logo.svg.png"
-        },
-        {
-            name: "JS",
-            image: "https://cdn4.iconfinder.com/data/icons/scripting-and-programming-languages/512/js-512.png"
-        },
-    ]
-
     const skills = props.data.skills;
-    
+
     if (skills.length < 1) {
         return (
             <section className={styles.container}>

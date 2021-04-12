@@ -1,13 +1,13 @@
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
-import styles from '../styles/Projects.module.scss';
-import {filterFeaturedProjects} from '../lib/projects';
 import Image from 'next/image'
 
+import { filterFeaturedProjects } from '../lib/projects';
+import styles from '../styles/Projects.module.scss';
 export default function Projects(props) {
 
   let projects = []
-  if(props.filtered){
+  if (props.filtered) {
     projects = filterFeaturedProjects(props.data.projects);
   } else {
     projects = props.data.projects;
@@ -26,7 +26,8 @@ export default function Projects(props) {
           />
         </Grid>
       </div>
-    )} else {
+    )
+  } else {
     return (
       <div className={styles.container}>
         <h3 className={styles.title}>{props.title}</h3>

@@ -1,9 +1,11 @@
-import Layout from "../components/layout";
-import styles from '../styles/About.module.scss'
 import Head from 'next/head';
 import { promises as fs } from 'fs';
 import path from 'path'
 import ReactMarkdown from "react-markdown";
+
+import Layout from "../components/layout";
+
+import styles from '../styles/About.module.scss'
 
 export async function getStaticProps() {
     const filePath = path.join(process.cwd(), 'data/about.md')
@@ -15,7 +17,7 @@ export async function getStaticProps() {
     }
 }
 
-export default function About({ about }) {
+export default function About(about: string) {
     return (
         <>
             <Head>
@@ -23,9 +25,7 @@ export default function About({ about }) {
             </Head>
             <Layout >
                 <div className={styles.Container}>
-
                     <ReactMarkdown source={about} />
-
                 </div>
             </Layout>
         </>

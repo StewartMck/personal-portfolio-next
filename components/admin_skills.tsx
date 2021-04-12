@@ -166,26 +166,30 @@ export default function SkillsProjects() {
             <br />
             <div style={{ overflow: "scroll", maxHeight: 200, width: "100%" }}>
                 <table className={styles.table}>
-                    <tr className={styles.table}>
-                        <th>Id</th>
-                        <th>Name</th>
-                        <th>Image</th>
-                        <th>Created At</th>
-                        <th>Updated At</th>
-                        <th>Delete</th>
-                    </tr>
-                    {items.map((skill: typeof defaultForm, i) => {
-                        return (
-                            <tr key={i} className={styles.table}>
-                                <th>{skill.id}</th>
-                                <th onClick={() => handleUpdate(skill)}>{skill.name}</th>
-                                <th className={styles.long}>{skill.image}</th>
-                                <th>{skill.createdAt}</th>
-                                <th>{skill.updatedAt}</th>
-                                <th><button className={styles.deleteButton} onClick={() => handleDelete(Number(skill.id))}>Delete</button></th>
-                            </tr>
-                        )
-                    })}
+                    <thead>
+                        <tr className={styles.table}>
+                            <th>Id</th>
+                            <th>Name</th>
+                            <th>Image</th>
+                            <th>Created At</th>
+                            <th>Updated At</th>
+                            <th>Delete</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {items.map((skill: typeof defaultForm, i) => {
+                            return (
+                                <tr key={i} className={styles.table}>
+                                    <th>{skill.id}</th>
+                                    <th onClick={() => handleUpdate(skill)}>{skill.name}</th>
+                                    <th className={styles.long}>{skill.image}</th>
+                                    <th>{skill.createdAt}</th>
+                                    <th>{skill.updatedAt}</th>
+                                    <th><button className={styles.deleteButton} onClick={() => handleDelete(Number(skill.id))}>Delete</button></th>
+                                </tr>
+                            )
+                        })}
+                    </tbody>
                 </table>
             </div>
         </section>

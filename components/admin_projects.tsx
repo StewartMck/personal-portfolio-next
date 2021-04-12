@@ -197,32 +197,36 @@ export default function AdminProjects() {
             <br />
             <div className={styles.tableContainer} style={{ overflow: "scroll", maxHeight: 200 }}>
                 <table className={styles.table}>
-                    <tr className={styles.table}>
-                        <th>Id</th>
-                        <th>Title</th>
-                        <th>Description</th>
-                        <th>Image</th>
-                        <th>Url</th>
-                        <th>Featured</th>
-                        <th>Created At</th>
-                        <th>Updated At</th>
-                        <th>Delete</th>
-                    </tr>
-                    {items.map((project: typeof defaultForm, i) => {
-                        return (
-                            <tr key={i} className={styles.table}>
-                                <th>{project.id}</th>
-                                <th onClick={() => handleUpdate(project)}>{project.title}</th>
-                                <th >{project.description}</th>
-                                <th className={styles.long}>{project.image}</th>
-                                <th className={styles.long}>{project.url}</th>
-                                <th>{project.featured ? 'T' : 'F'}</th>
-                                <th>{project.createdAt}</th>
-                                <th>{project.updatedAt}</th>
-                                <th><button className={styles.deleteButton} onClick={() => handleDelete(Number(project.id))}>Delete</button></th>
-                            </tr>
-                        )
-                    })}
+                    <thead>
+                        <tr className={styles.table}>
+                            <th>Id</th>
+                            <th>Title</th>
+                            <th>Description</th>
+                            <th>Image</th>
+                            <th>Url</th>
+                            <th>Featured</th>
+                            <th>Created At</th>
+                            <th>Updated At</th>
+                            <th>Delete</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {items.map((project: typeof defaultForm, i) => {
+                            return (
+                                <tr key={i} className={styles.table}>
+                                    <th>{project.id}</th>
+                                    <th onClick={() => handleUpdate(project)}>{project.title}</th>
+                                    <th >{project.description}</th>
+                                    <th className={styles.long}>{project.image}</th>
+                                    <th className={styles.long}>{project.url}</th>
+                                    <th>{project.featured ? 'T' : 'F'}</th>
+                                    <th>{project.createdAt}</th>
+                                    <th>{project.updatedAt}</th>
+                                    <th><button className={styles.deleteButton} onClick={() => handleDelete(Number(project.id))}>Delete</button></th>
+                                </tr>
+                            )
+                        })}
+                    </tbody>
                 </table>
             </div>
         </section>
