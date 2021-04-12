@@ -17,8 +17,10 @@ type Project = {
 }
 
 export async function getStaticProps() {
-  const resProjects = await fetch('http://localhost:3000/api/projects/all');
-  const projects: Project[] = await resProjects.json();
+  // const resProjects = await fetch('http://localhost:3000/api/projects/all');
+  // const projects: Project[] = await resProjects.json();
+
+  const projects = {};
 
   return {
     props: {
