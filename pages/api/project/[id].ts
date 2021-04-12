@@ -48,8 +48,5 @@ export default withApiAuthRequired(async (req: NextApiRequest, res: NextApiRespo
 
     } catch (e) {
         res.status(500).json({ error: e.meta.cause })
-    } finally {
-        await prisma.$disconnect()
     }
-    
-});
+  });

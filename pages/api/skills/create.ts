@@ -15,15 +15,15 @@ export default withApiAuthRequired(async (req: NextApiRequest, res: NextApiRespo
                 throw new Error("Some required fields are missing")
             } else {
 
-            const newSkill = await prisma.skills.create({
-                data: {
+                const newSkill = await prisma.skills.create({
+                    data: {
 
-                    name: name,
-                    image: image,
-                }
-            });
-            res.status(200).json({ skill: newSkill, message: "success" });
-        }
+                        name: name,
+                        image: image,
+                    }
+                });
+                res.status(200).json({ skill: newSkill, message: "success" });
+            }
 
         } catch (e) {
             res.status(500).json({ error: e.message });

@@ -10,30 +10,25 @@ export default withApiAuthRequired(async (req: NextApiRequest, res: NextApiRespo
     } = req
 
     if (method === 'POST') {
-        console.log(title, description, image, url, featured)
         try {
-            if (!title || !description || !image || !url ) {
-                console.log('missing values error triggered')
+            if (!title || !description || !image || !url) {
                 throw new Error("Some required fields are missing")
             } else {
 
-            const newProject = await prisma.project.create({
-                data: {
+                const newProject = await prisma.project.create({
+                    data: {
+                        title: title,
+                        description: description,
+                        image: image,
+                        url: url,
+                        featured: featured,
+                    }
+                });
 
-                    title: title,
-                    description: description,
-                    image: image,
-                    url: url,
-                    featured: featured,
-                }
-            });
-    
-            res.status(200).json({ project: newProject, message: "success" });
-        
-        }
+                res.status(200).json({ project: newProject, message: "success" });
+            }
 
         } catch (e) {
-            console.log(e.message)
             res.status(500).json({ error: e.message });
         }
 
@@ -41,5 +36,4 @@ export default withApiAuthRequired(async (req: NextApiRequest, res: NextApiRespo
         res.setHeader('Allow', ['POST'])
         res.status(405).end(`Method ${method} Not Allowed`)
     }
-
 });

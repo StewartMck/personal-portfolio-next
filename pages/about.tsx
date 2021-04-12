@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import { InferGetStaticPropsType } from 'next';
 import { promises as fs } from 'fs';
 import path from 'path'
 import ReactMarkdown from "react-markdown";
@@ -9,15 +10,16 @@ import styles from '../styles/About.module.scss'
 
 export async function getStaticProps() {
     const filePath = path.join(process.cwd(), 'data/about.md')
-    const contents = await fs.readFile(filePath, 'utf-8');
+    const contents: string = await fs.readFile(filePath, 'utf-8');
+
     return {
         props: {
-            about: contents,
+            contents
         }
     }
 }
 
-export default function About(about: string) {
+export default function About({ contents }: InferGetStaticPropsType<typeof getStaticProps>) {
     return (
         <>
             <Head>
@@ -25,7 +27,7 @@ export default function About(about: string) {
             </Head>
             <Layout >
                 <div className={styles.Container}>
-                    <ReactMarkdown source={about} />
+                    <ReactMarkdown source={contents} />
                 </div>
             </Layout>
         </>
