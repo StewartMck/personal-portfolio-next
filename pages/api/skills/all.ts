@@ -6,7 +6,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 
   if (method === "GET") {
     try {
-      const allSkills = await prisma.skills.findMany();
+      const allSkills = await prisma.skill.findMany();
       res.status(200).json({ skills: allSkills });
     } catch (e) {
       res.status(500).json({ error: e });

@@ -4,7 +4,18 @@ import Image from 'next/image'
 
 import { filterFeaturedProjects } from '../lib/projects';
 import styles from '../styles/Projects.module.scss';
-export default function Projects(props) {
+export default function Projects(props: any) {
+
+  type Project = {
+    id: number
+    title: string;
+    description: string;
+    image: string;
+    url: string;
+    featured: boolean;
+    createdAt: Date;
+    updatedAt: Date;
+  }
 
   let projects = []
   if (props.filtered) {
@@ -32,7 +43,7 @@ export default function Projects(props) {
       <div className={styles.container}>
         <h3 className={styles.title}>{props.title}</h3>
         <Grid container spacing={3}>
-          {projects.map((proj, i) => {
+          {projects.map((proj: Project, i: number) => {
             return (
               <Grid key={i} item xs={6} sm={3}>
                 <a href={proj.url}>

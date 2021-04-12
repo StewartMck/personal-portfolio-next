@@ -1,4 +1,3 @@
-import { CallbackOptions } from '@auth0/nextjs-auth0';
 import { useEffect } from 'react';
 
 export default function Scroll({onScroll}: any) {

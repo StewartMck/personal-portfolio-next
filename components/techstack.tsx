@@ -1,9 +1,17 @@
 import styles from "../styles/TechStack.module.scss"
 import Image from 'next/image';
 
-export default function TechStack(props) {
+type Skill = {
+            id: number;
+            name: string;
+            image: string;
+            createdAt: Date;
+            updatedAt: Date;
+}
 
-    const skills = props.data.skills;
+export default function TechStack({data}: any) {
+
+    const {skills} = data;
 
     if (skills.length < 1) {
         return (
@@ -24,7 +32,7 @@ export default function TechStack(props) {
             <section className={styles.container}>
                 <h3 className={styles.title}>Skills</h3>
                 <div className={styles.skills}>
-                    {skills.map((skill, i) => {
+                    {skills.map((skill: Skill, i: number) => {
                         return (
                             <img key={i} className={styles.img} src={skill.image} alt={skill.name} />
                         )

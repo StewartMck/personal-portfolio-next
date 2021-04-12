@@ -13,13 +13,13 @@ export default withApiAuthRequired(async (req: NextApiRequest, res: NextApiRespo
     try {
         switch (method) {
             case 'GET':
-                const getSkill = await prisma.skills.findUnique({
+                const getSkill = await prisma.skill.findUnique({
                     where: { id: Number(id) }
                 });
                 res.status(200).json({ skill: getSkill })
                 break;
             case 'PUT':
-                const updateSkill = await prisma.skills.update({
+                const updateSkill = await prisma.skill.update({
                     where: {
                         id: Number(id)
                     },
@@ -32,7 +32,7 @@ export default withApiAuthRequired(async (req: NextApiRequest, res: NextApiRespo
                 res.status(200).json({ skill: updateSkill, message: "success" })
                 break;
             case 'DELETE':
-                const deleteSkill = await prisma.skills.delete({
+                const deleteSkill = await prisma.skill.delete({
                     where: {
                         id: Number(id)
                     }
