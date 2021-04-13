@@ -4,30 +4,37 @@ import Image from 'next/image'
 
 import { filterFeaturedProjects } from '../lib/projects';
 import styles from '../styles/Projects.module.scss';
-export default function Projects(props: any) {
 
-  type Project = {
-    id: number
-    title: string;
-    description: string;
-    image: string;
-    url: string;
-    featured: boolean;
-    createdAt: Date;
-    updatedAt: Date;
-  }
+interface Props{
+  title: string;
+  filtered: boolean
+  data: Project[];
+}
+
+type Project = {
+  id: number
+  title: string;
+  description: string;
+  image: string;
+  url: string;
+  featured: boolean;
+  createdAt: Date;
+  updatedAt: Date;
+}
+
+export default function Projects({title, filtered, data}: Props) {
 
   let projects = []
-  if (props.filtered) {
-    projects = filterFeaturedProjects(props.data.projects);
+  if (filtered) {
+    projects = filterFeaturedProjects(data);
   } else {
-    projects = props.data.projects;
+    projects = data;
   }
 
   if (!projects || projects.length < 1) {
     return (
       <div className={styles.container}>
-        <h3>{props.title}</h3>
+        <h3>{title}</h3>
         <Grid item xs={12}>
           <Image
             src="/work-progress.png"
@@ -41,9 +48,9 @@ export default function Projects(props: any) {
   } else {
     return (
       <div className={styles.container}>
-        <h3 className={styles.title}>{props.title}</h3>
+        <h3 className={styles.title}>{title}</h3>
         <Grid container spacing={3}>
-          {projects.map((proj: Project, i: number) => {
+          {projects.map((proj, i) => {
             return (
               <Grid key={i} item xs={6} sm={3}>
                 <a href={proj.url}>

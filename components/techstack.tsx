@@ -1,17 +1,19 @@
 import styles from "../styles/TechStack.module.scss"
 import Image from 'next/image';
 
-type Skill = {
-            id: number;
-            name: string;
-            image: string;
-            createdAt: Date;
-            updatedAt: Date;
+interface Props {
+    skills: Skill[];
 }
 
-export default function TechStack({data}: any) {
+type Skill = {
+    id: number;
+    name: string;
+    image: string;
+    createdAt: Date;
+    updatedAt: Date;
+}
 
-    const {skills} = data;
+export default function TechStack({ skills }: Props) {
 
     if (skills.length < 1) {
         return (

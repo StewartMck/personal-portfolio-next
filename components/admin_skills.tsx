@@ -46,7 +46,7 @@ export default function SkillsProjects() {
 
     const getData = () => {
         axios({
-            url: 'http://localhost:3000/api/skills/all',
+            url: '/api/skills/all',
             method: "GET",
         }).then((res) => {
             setItems(res.data.skills)
@@ -67,7 +67,7 @@ export default function SkillsProjects() {
         try {
             if (method === "Create") {
                 const res = await axios({
-                    url: 'http://localhost:3000/api/skills/create',
+                    url: '/api/skills/create',
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
@@ -81,7 +81,7 @@ export default function SkillsProjects() {
                 }
             } else if (method === "Update") {
                 const res = await axios({
-                    url: `http://localhost:3000/api/skill/${formData.id}`,
+                    url: `/api/skill/${formData.id}`,
                     method: 'PUT',
                     headers: {
                         'Content-Type': 'application/json'
@@ -107,7 +107,7 @@ export default function SkillsProjects() {
         dispatch({ type: "loading" })
         if (window.confirm("Are you sure you want to delete this skill?") === true) {
             const res = await axios({
-                url: `http://localhost:3000/api/skill/${id}`,
+                url: `/api/skill/${id}`,
                 method: 'delete',
             })
             if (res.data.message === 'success') {

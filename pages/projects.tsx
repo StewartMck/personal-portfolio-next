@@ -2,6 +2,7 @@ import Head from 'next/head';
 import { InferGetStaticPropsType } from 'next';
 import Layout from '../components/layout';
 import Projects from '../components/projects';
+import {getProjects} from '../pages/api/projects/all'
 
 import styles from '../styles/AllProjects.module.scss';
 
@@ -17,8 +18,9 @@ type Project = {
 }
 
 export async function getStaticProps() {
-  const resProjects = await fetch('https://personal-portfolio-next-7ggzufpg9-stewartmck.vercel.app/api/projects/all');
-  const projects: Project[] = await resProjects.json();
+
+  const resProjects = await getProjects();
+  const projects: Project[] = await JSON.parse(resProjects);
 
   return {
     props: {
@@ -36,6 +38,7 @@ export default function AllProjects({ projects }: InferGetStaticPropsType<typeof
       <Layout>
         <section className={styles.Container}>
           <Projects
+            filtered={false}
             data={projects}
             title={"Projects"}
           />

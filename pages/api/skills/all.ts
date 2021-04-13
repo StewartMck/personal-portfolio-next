@@ -1,6 +1,11 @@
 import prisma from '../../../lib/prisma';
 import { NextApiRequest, NextApiResponse } from 'next';
 
+export async function getSkills() {
+  const data = await prisma.skill.findMany();
+  return JSON.stringify(data);
+}
+
 export default async (req: NextApiRequest, res: NextApiResponse) => {
   const { method } = req;
 

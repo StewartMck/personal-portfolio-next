@@ -52,7 +52,7 @@ export default function AdminProjects() {
 
     const getData = () => {
         axios({
-            url: 'http://localhost:3000/api/projects/all',
+            url: '/api/projects/all',
             method: "GET",
         }).then((res) => {
             setItems(res.data.projects)
@@ -70,7 +70,7 @@ export default function AdminProjects() {
         try {
             if (method === "Create") {
                 const res = await axios({
-                    url: 'http://localhost:3000/api/projects/create',
+                    url: '/api/projects/create',
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
@@ -84,7 +84,7 @@ export default function AdminProjects() {
                 }
             } else if (method === "Update") {
                 const res = await axios({
-                    url: `http://localhost:3000/api/project/${formData.id}`,
+                    url: `/api/project/${formData.id}`,
                     method: 'PUT',
                     headers: {
                         'Content-Type': 'application/json'
@@ -107,7 +107,7 @@ export default function AdminProjects() {
         dispatch({ type: "loading" })
         if (window.confirm("Are you sure you want to delete this project?") === true) {
             const res = await axios({
-                url: `http://localhost:3000/api/project/${id}`,
+                url: `/api/project/${id}`,
                 method: 'delete',
             })
             if (res.data.message === 'success') {

@@ -7,10 +7,9 @@ import TechStack from '../components/techstack'
 
 import { InferGetStaticPropsType } from 'next';
 
-import useSwr from 'swr'
-import {getData} from '../pages/api/projects/all'
-
 import styles from '../styles/Home.module.scss'
+import { getProjects } from './api/projects/all'
+import { getSkills } from './api/skills/all'
 
 type Project = {
   id: number
@@ -32,17 +31,17 @@ type Skills = {
 }
 
 export async function getStaticProps() {
-  
-  const resProjects = await fetch('https://personal-portfolio-next-7ggzufpg9-stewartmck.vercel.app/api/projects/all');
-  const projects: Project[] = await resProjects.json();
 
-  const resSkills = await fetch('https://personal-portfolio-next-7ggzufpg9-stewartmck.vercel.app/api/skills/all');
-  const skills: Skills[] = await resSkills.json();
+  const resProjects = await getProjects();
+  const projects: Project[] = await JSON.parse(resProjects);
+
+  const resSkills = await getSkills();
+  const skills: Skills[] = await JSON.parse(resSkills);
 
   return {
     props: {
       projects,
-      skills,
+      skills
     }
   }
 }
@@ -79,7 +78,7 @@ export default function Home({ projects, skills }: InferGetStaticPropsType<typeo
         <br />
         <br />
         <TechStack
-          data={skills}
+          skills={skills}
         />
       </Layout>
     </>
