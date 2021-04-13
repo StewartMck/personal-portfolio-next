@@ -22,8 +22,7 @@
     "react-markdown": "^5.0.3",
     "remark": "^13.0.0",
     "remark-html": "^13.0.1",
-    "sass": "^1.32.8",
-    "swr": "^0.5.5"
+    "sass": "^1.32.8"
   },
   "devDependencies": {
     "@types/react": "^17.0.3",
