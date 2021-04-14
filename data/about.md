@@ -1,4 +1,4 @@
-For the past **14 years**, I've been flying helicopters and aeroplanes all over the world. From the dense jungles of africa, the vast deserts of the middle east to the cold barren artic wilderness.
+For the past **14 years**, I've been flying helicopters and aeroplanes all over the world. From the dense jungles of Africa, the vast deserts of the Middle East to the cold barren Arctic wilderness.
 
 I've always had an interest in coding and so when COVID necessitated a change in careers I jumped at the opportunity to take this interest and turn it into a passion.
 I graduated from **Lighthouse Labs Web Development Bootcamp** in Febuary of 2021, not only with the skills to develop a quality product but also a thirst to try and master new concepts and technologies.
