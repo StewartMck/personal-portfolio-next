@@ -54,7 +54,7 @@ export default function Projects({title, filtered, data}: Props) {
             return (
               <Grid key={i} item xs={6} sm={3}>
                 <a href={proj.url}>
-                  <Paper>
+                  <Paper className={styles.card}>
                     <h4>{proj.title}</h4>
                     <p>{proj.description}</p>
                     <img className={styles.img} src={proj.image} alt={proj.title} />

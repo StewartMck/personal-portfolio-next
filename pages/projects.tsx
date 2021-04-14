@@ -2,7 +2,7 @@ import Head from 'next/head';
 import { InferGetStaticPropsType } from 'next';
 import Layout from '../components/layout';
 import Projects from '../components/projects';
-import {getProjects} from '../pages/api/projects/all'
+import { getProjects } from '../pages/api/projects/all'
 
 import styles from '../styles/AllProjects.module.scss';
 
@@ -25,7 +25,8 @@ export async function getStaticProps() {
   return {
     props: {
       projects,
-    }
+    },
+    revalidate: 5,
   }
 }
 

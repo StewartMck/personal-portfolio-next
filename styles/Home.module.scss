@@ -9,6 +9,7 @@
 .title h5{
   margin-top: 10px;
   color: whitesmoke;
+  opacity: 0.8;
   font-size: 4vw;
   letter-spacing: 0.05em;
 }
@@ -34,7 +35,7 @@
   margin: 0 auto; /* Gives that scrolling effect as the typing happens */
   letter-spacing: .15em; /* Adjust as needed */
   animation: 
-    typing 2.5s steps(40, end),
+    typing 3.0s steps(40, end),
     blink-caret .75s step-end infinite;
 }
 
