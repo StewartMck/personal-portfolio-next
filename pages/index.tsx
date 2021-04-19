@@ -55,6 +55,10 @@ export default function Home({ projects, skills }: InferGetStaticPropsType<typeo
         <title>Stewart McKinlay</title>
         <meta charSet="utf-8" />
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+        <meta property='og:title' content='Stewart McKinlay'/>
+        <meta property='og:image' content='/public/ogImage.png'/>
+        <meta property='og:description' content='Personal Portfolio'/>
+        <meta property='og:url' content='//www.smckinlay.ca'/> 
       </Head>
       <Layout>
         <section className={styles.title}>
